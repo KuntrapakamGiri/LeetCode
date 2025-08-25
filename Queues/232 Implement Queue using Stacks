@@ -1,9 +1,9 @@
-/**Problem Brief:
+/**
+
+Problem Brief:
 
 You are asked to implement a queue (FIFO: First In First Out) using only two stacks (LIFO: Last In First Out). **/
 
-
-import java.util.Stack;
 
 class MyQueue {
     Stack<Integer> s1; // Main stack (front at top)
