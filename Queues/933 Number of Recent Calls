@@ -1,0 +1,63 @@
+/**
+Problem Statement:
+
+You need to design a RecentCounter class that counts the number of requests in the last 3000 milliseconds.
+
+Each request has a timestamp t (in milliseconds, strictly increasing).
+
+Implement the method:
+
+ping(int t) → Records a new request at time t and returns the number of requests that have happened in the range [t - 3000, t].
+
+🔹 Example:
+Input: 
+["RecentCounter","ping","ping","ping","ping"]
+[[],[1],[100],[3001],[3002]]
+
+Output: 
+[null,1,2,3,3]
+
+
+Explanation:
+
+ping(1) → requests = [1] → count = 1
+
+ping(100) → requests = [1, 100] → count = 2
+
+ping(3001) → requests = [1, 100, 3001] → count = 3
+
+ping(3002) → requests = [100, 3001, 3002] → count = 3 (1 gets removed as it is older than 3002 - 3000) **/
+
+
+
+class RecentCounter {
+    Queue<Integer> q;
+
+    // Constructor
+    public RecentCounter() {
+        q = new LinkedList<Integer>();
+    }
+    
+    // Record a new ping at time t and return count of valid pings
+    public int ping(int t) {
+        // Remove all timestamps older than (t - 3000)
+        while (!q.isEmpty() && q.peek() < t - 3000) {
+            q.poll();
+        }
+
+        // Add the current timestamp
+        q.offer(t);
+
+        // Queue size = number of valid pings
+        return q.size();
+    }
+}
+
+/**
+ * Example usage:
+ * RecentCounter obj = new RecentCounter();
+ * System.out.println(obj.ping(1));    // 1
+ * System.out.println(obj.ping(100));  // 2
+ * System.out.println(obj.ping(3001)); // 3
+ * System.out.println(obj.ping(3002)); // 3
+ */
