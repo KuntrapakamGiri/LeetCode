@@ -1,0 +1,63 @@
+/***Problem Statement:
+
+Design a circular queue data structure that supports the following operations efficiently:
+
+enQueue(value): Insert an element at the rear. Return true if success, else false if queue is full.
+
+deQueue(): Remove an element from the front. Return true if success, else false if queue is empty.
+
+Front(): Get the front element. Return -1 if queue is empty.
+
+Rear(): Get the last element. Return -1 if queue is empty.
+
+isEmpty(): Check if the queue is empty.
+
+isFull(): Check if the queue is full.
+
+The queue should wrap around when reaching the end (circular behavior). ***/
+
+class MyCircularQueue {
+    int size = 0;
+    int capacity = 0;
+    int rear = -1;
+    int front = 0; 
+    int q[];
+
+    public MyCircularQueue(int k) {
+        capacity = k;
+        q = new int[k];
+    }
+    
+    public boolean enQueue(int value) {
+        if (isFull()) return false;
+        rear = (rear + 1) % capacity; // circular increment
+        q[rear] = value;
+        size++;
+        return true;
+    }
+    
+    public boolean deQueue() {
+        if (isEmpty()) return false;
+        front = (front + 1) % capacity; // move front forward
+        size--;
+        return true;
+    }
+    
+    public int Front() {
+        if (isEmpty()) return -1; // queue empty
+        return q[front];
+    }
+    
+    public int Rear() {
+        if (isEmpty()) return -1; // queue empty
+        return q[rear];
+    }
+    
+    public boolean isEmpty() {
+        return size == 0;
+    }
+    
+    public boolean isFull() {
+        return size == capacity;
+    }
+}

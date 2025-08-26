@@ -6,3 +6,8 @@ Link : https://leetcode.com/problems/implement-queue-using-stacks/description/
 #933 – Number of Recent Calls
 
 Link : https://leetcode.com/problems/number-of-recent-calls/
+
+
+#622 - Design Circular Queue
+
+Link : https://leetcode.com/problems/design-circular-queue/description/
