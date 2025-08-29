@@ -20,3 +20,10 @@ Sliding Windows  :
 #1004 - Max Consecutive Ones III
 
 Link : https://leetcode.com/problems/max-consecutive-ones-iii/description/
+
+
+Arrays Two Pointers :
+
+#283 - Move Zeroes
+
+Link : https://leetcode.com/problems/move-zeroes/description/
