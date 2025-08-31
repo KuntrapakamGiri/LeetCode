@@ -27,3 +27,7 @@ Arrays Two Pointers :
 #283 - Move Zeroes
 
 Link : https://leetcode.com/problems/move-zeroes/description/
+
+#27 - Remove Element
+
+Link : https://leetcode.com/problems/remove-element/description/

@@ -1,0 +1,46 @@
+<!--
+Problem Statement (in your own words)
+
+Given:
+- An array `nums` of integers.
+- An integer `val` to remove.
+
+Task:
+- Remove all occurrences of `val` from `nums`.
+- Move all elements not equal to `val` to the start of the array.
+- Return the count `k` of elements left (not equal to `val`).
+- The order of remaining elements does not matter.
+- Elements beyond `k` can be ignored.
+
+Examples:
+
+Example 1:
+Input: nums = [3,2,2,3], val = 3
+Process: remove 3s → [2,2,_,_]
+Output: k = 2, first 2 elements are [2,2].
+
+Example 2:
+Input: nums = [0,1,2,2,3,0,4,2], val = 2
+Process: remove 2s → [0,1,3,0,4,_,_,_]
+Output: k = 5, first 5 elements are [0,1,3,0,4].
+-->
+
+```java
+class Solution {
+    /**
+     * Removes all occurrences of val from nums in-place.
+     * Returns the number of elements not equal to val.
+     * The order of elements may change.
+     */
+    public int removeElement(int[] nums, int val) {
+        int k = 0; // index to place non-val elements
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != val) {
+                nums[k] = nums[i]; // move non-val element forward
+                k++;
+            }
+        }
+        return k; // number of elements not equal to val
+    }
+}
+```
